@@ -10,9 +10,6 @@ export class Item {
 
   @Prop({ required: true })
   description: string;
-
-  @Prop({ default: 0 })
-  inventory: number;
 }
 
 export const ItemSchema = SchemaFactory.createForClass(Item);
