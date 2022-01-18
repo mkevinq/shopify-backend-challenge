@@ -9,6 +9,8 @@ import {
   ValidateNested,
 } from 'class-validator';
 
+import ObjectArrayUniqueProperty from '../../validators/object-array-unique.validator';
+
 export class CreateWarehouseItem {
   @IsNotEmpty()
   @IsString()
@@ -32,5 +34,6 @@ export class CreateWarehouseDto {
   @Type(() => CreateWarehouseItem)
   @IsArray()
   @ArrayNotEmpty()
+  @ObjectArrayUniqueProperty('item')
   inventory: CreateWarehouseItem[];
 }
