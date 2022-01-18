@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    volumes:
+      - ./data/mongo/db:/data/db
+    ports:
+      - 27017:27017
+
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/default
